@@ -50,3 +50,50 @@ class BankAccount:
 
 check = BankAccount(1000)
 check.withdraw(1100)
+
+# Challange 3:
+class Student:
+    def __init__(self, name, marks_list):
+        self.name = name
+        self.marks_list = marks_list
+
+    def calculate_average(self):
+        avg = sum(self.marks_list) / len(self.marks_list)
+        return avg
+    def final_report(self):
+        average = self.calculate_average()
+        if average > 50:
+            print("Pass")
+        else:
+            print("Fail")
+sty = Student("Abdullah", [70,80,90])
+print(sty.calculate_average())
+sty.final_report()
+
+
+# Challenge 4:
+class Store:
+    def __init__(self, name, price, quantity):
+        self.name = name
+        self.price = price
+        self.quantity =quantity
+        self.revenue = 0
+    def material(self, stock):
+        self.quantity += stock
+        return self.quantity
+    def purchase(self, amount):
+        if amount < self.quantity:
+            self.quantity -= amount
+            self.revenue = self.price * amount
+        else:
+            print("Out of Stock...")
+    def Total_records(self):
+        print(f"Product name: {self.name}")
+        print(f"Price: {self.price}")
+        print(f"Quantity: {self.quantity}")
+        print(f"Revenue: {self.revenue}")
+
+prn = Store("Abdullah", 1000, 10)
+print(prn.material(21))
+prn.purchase(15)
+prn.Total_records()
